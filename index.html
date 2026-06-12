@@ -3,49 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExpenseHub</title>
+    <title>ExpenseHub - Master Your Finances</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h2>ExpenseHub</h2>
+
+    <!-- NAVBAR -->
+     <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span class="logo-icon">⬡</span>
+            <span class="logo-text">ExpenseHub</span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#" class="nav-login">Login</a></li>
+        </ul>
+
+        <button class="signup-btn" id="open-modal">Sign Up Free</button>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+     </nav>
+
+     <!-- HERO -->
+      <main>
+        <section class="hero" id="home">
+            <div class="hero-badge">✦ Trusted by 50,000+ people</div>
+            <h1>
+                Master Your <em>Finances.</em><br>
+                Efforlessly Track &amp;<br>
+                Manage Expenses.
+            </h1>
+            <p class="hero-sub">
+                The smarter way to budget, categorize spending,<br>
+                and achieve your financial goals - all in one place.
+            </p>
+            <div class="hero-actions">
+                <button class="hero-btn" id="hero-open-modal">Get Started - It's Free</button>
+                <a href="#features" class="hero-link">See how it works →</a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Login</a></li>
-            </ul>
-            <button class="signup-btn">
-                Sign Up Free
-            </button>
-        </nav>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>
-                    Master Your Finances.
-                    Effortlessly Track &
-                    Manage Expenses.
-                </h1>
-                <p>
-                    The smarter way to budget, 
-                    categorize spending and 
-                    achieve financial goals.
-                </p>
-                <button class="hero-btn">
-                    Get Started - It's Free
-                </button>
+            
+            <div class="dashboard-container">
+                <div class="dashboard-glow"></div>
+                <img
+                        src="images/hero-dashboard.png"
+                        class="dashboard-img"
+                        alt="ExpenseHub dashboard showing expense categories and spending graphs"
+                        loading="lazy">
             </div>
         </section>
-        <div class="dashboard-container">
-            <img 
-                src="images/hero-dashboard.png"
-                class="dashboard-img"
-                alt="Dashboard">
-        </div>
-    </header>
-    <script src="script.js"></script>
+
+        <!-- FEATURES -->
+         <section class="features" id="features">
+            <div class="section-label">Features</div>
+            <h2 class="section-title">Everything you need to stay on top</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart Analytics</h3>
+                    <p>Visual breakdowns of where your money goes, updated in real time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗂️</div>
+                    <h3>Auto-Categorize</h3>
+                    <p>AI-powered tagging sorts your transactions the moment they arrive.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Goal Tracking</h3>
+                    <p>Set savings milestones and watch your progress in live charts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Smart Alerts</h3>
+                    <p>Get notified before you overspend - not after the damage is done.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Bank-Level Security</h3>
+                    <p>256-bit encryption. Your data is private and always protected.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile First</h3>
+                    <p>Works beautifully on any device - phone, tablet, or desktop.</p>
+                </div>
+            </div>
+         </section>
+
+         <!-- STATS -->
+          <section class="stats">
+            <div class="start">
+                <span class="start-number">50K+</span>
+                <span class="stat-label">Active users</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">₹2.4Cr</span>
+                <span class="stat-label">Tracked monthly</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">4.9 ★</span>
+                <span class="stat-label">Average rating</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">99.9%</span>
+                <span class="stat-label">Uptime</span>
+            </div>
+          </section>
+
+          <!-- PRICING -->
+           <section class="pricing" id="pricing">
+            <div class="section-label">Pricing</div>
+            <h2 class="section-title">Simple, transpared pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">₹0<span>/mo</span></div>
+                    <ul>
+                        <li>✓ Up to 50 transactions/month</li>
+                        <li>✓ 3 expense categories</li>
+                        <li>✓ Basic analytics</li>
+                        <li>✗ Goal tracking</li>
+                        <li>✗ Smart alerts</li>
+                    </ul>
+                    <button class="plan-btn" onclick="openModal()">Get started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="popular-badge">Most popular</div>
+                    <h3>Pro</h3>
+                    <div class="price">₹299<span>/mo</span></div>
+                    <ul>
+                        <li>✓ Unlimited transactions</li>
+                        <li>✓ Unlimited categories</li>
+                        <li>✓ Advanced analytics</li>
+                        <li>✓ Goal tracking</li>
+                        <li>✓ Smart alerts</li>
+                    </ul>
+                    <button class="plan-btn primary" onclick="openModal()">Start free trial</button>
+                </div>
+            </div>
+           </section>
+
+           <!-- TESTIMONIALS -->
+            <section class="testimonials" id="testimonials">
+                <div class="section-label">Testimonials</div>
+                <h2 class="section-title">People who made the switch</h2>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>"I saved ₹8,000 in the first month just by seeing where my money actually went. Mind-blowing."</p>
+                        <div class="testimonial-author">
+                            <div class="avatar">RK</div>
+                            <div>
+                                <strong>Rohan Kulkarni</strong>
+                                <span>Software Engineer, Pune</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Finally, a budgeting app that doesn't make me feel like I'm filing taxes. Clean, fast, intuitive."</p>
+                        <div class="testimonial-author">
+                            <div class="avatar">PS</div>
+                            <div>
+                                <strong>Priya Sharma</strong>
+                                <span>Freelance Designer, Bangalore</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The goal tracker is what sold me. I can literally watch my travel fund grow every week."</p>
+                        <div class="testimonial-author">
+                            <div class="avatar">AM</div>
+                            <div>
+                                <strong>Aditya Mehta</strong>
+                                <span>MBA Student, Mumbai</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+             <section class="cta-section">
+                <h2>Ready to take control?</h2>
+                <p>Join 50,000+ people already tracking smarter.</p>
+             </section>
+      </main>
 </body>
 </html>
