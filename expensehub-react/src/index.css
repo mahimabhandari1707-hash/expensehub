@@ -858,3 +858,223 @@ footer {
     .footer-links { gap: 32px; }
     .modal { padding: 36px 24px 28px; }
 }
+
+/* =====================
+   DASHBOARD UI
+   ===================== */
+.dashboard-ui {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-bottom: none;
+    box-shadow: var(--shadow-lg);
+    padding: 24px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dash-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--navy);
+}
+
+.dash-date {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.dash-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.dash-card {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dash-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.dash-value {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.dash-change {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dash-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.dash-chart, .dash-transactions {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+}
+
+.dash-section-title {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 110px;
+}
+
+.bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+}
+
+.bar {
+    width: 100%;
+    background: var(--primary);
+    border-radius: 4px 4px 0 0;
+    opacity: 0.85;
+}
+
+.bar-item span {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.txn-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text);
+}
+
+.txn-item:last-child {
+    border-bottom: none;
+}
+
+.txn-amt {
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.positive { color: var(--primary); }
+.negative { color: #e53e3e; }
+
+/* =====================
+   NAVBAR - signed in
+   ===================== */
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-hello {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--navy);
+    transition: background var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.logout-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* =====================
+   DASHBOARD (simple)
+   ===================== */
+.dashboard {
+    padding: 48px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.dashboard .lead {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.big {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+}

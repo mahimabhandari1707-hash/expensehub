@@ -20,7 +20,7 @@ function Hero({ onSignup }) {
             <div className="dashboard-container">
                 <div className="dashboard-glow"></div>
                 <img
-                    src="/images/hero-dashboard.png"
+                    src="/images/hero-dashboard.jpeg"
                     className="dashboard-img"
                     alt="ExpenseHub Dashboard"
                     loading="lazy"

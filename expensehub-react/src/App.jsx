@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
@@ -9,10 +9,21 @@ import CtaSection from "./components/CtaSection";
 import Footer from "./components/Footer";
 import Modal from "./components/Modal";
 import Toast from "./components/Toast";
+import Dashboard from "./components/Dashboard";
 
 function App() {
     const [modalOpen, setModalOpen] = useState(false);
     const [toastMsg, setToastMsg] = useState("");
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        try {
+            const raw = localStorage.getItem('expensehub_user');
+            if (raw) setUser(JSON.parse(raw));
+        } catch (e) {
+            // ignore
+        }
+    }, []);
 
     function openModal() {
         setModalOpen(true);
@@ -29,20 +40,29 @@ function App() {
 
     return (
         <>
-            <Navbar onSignup={openModal} />
+            <Navbar onSignup={openModal} user={user} onLogout={() => setUser(null)} />
             <main>
-                <Hero onSignup={openModal} />
-                <Features />
-                <Stats />
-                <Pricing onSignup={openModal} />
-                <Testimonials />
-                <CtaSection onSignup={openModal} />
+                {user ? (
+                    <Dashboard user={user} />
+                ) : (
+                    <>
+                        <Hero onSignup={openModal} />
+                        <Features />
+                        <Stats />
+                        <Pricing onSignup={openModal} />
+                        <Testimonials />
+                        <CtaSection onSignup={openModal} />
+                    </>
+                )}
             </main>
             <Footer />
             <Modal
                 isOpen={modalOpen}
                 onClose={closeModal}
-                onSuccess={() => {
+                onSuccess={(createdUser) => {
+                    // set user, persist, and show dashboard
+                    setUser(createdUser);
+                    try { localStorage.setItem('expensehub_user', JSON.stringify(createdUser)); } catch (e) {}
                     closeModal();
                     showToast("Account created! Welcome to ExpenseHub 🎉");
                 }}

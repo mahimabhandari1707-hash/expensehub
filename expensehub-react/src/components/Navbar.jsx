@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Navbar({ onSignup }) {
+function Navbar({ onSignup, user, onLogout }) {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -21,10 +21,17 @@ function Navbar({ onSignup }) {
                 <li><a href="#features" onClick={() => setMenuOpen(false)}>Features</a></li>
                 <li><a href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a></li>
                 <li><a href="#testimonials" onClick={() => setMenuOpen(false)}>Testimonials</a></li>
-                <li><a href="#" className="nav-login">Login</a></li>
+                {!user && <li><a href="#" className="nav-login">Login</a></li>}
             </ul>
 
-            <button className="signup-btn" onClick={onSignup}>Sign Up Free</button>
+            {user ? (
+                <div className="nav-user">
+                    <span className="nav-hello">Hello, {user.name}</span>
+                    <button className="logout-btn" onClick={() => { if (onLogout) onLogout(); try { localStorage.removeItem('expensehub_user'); } catch(e){} }}>Logout</button>
+                </div>
+            ) : (
+                <button className="signup-btn" onClick={onSignup}>Sign Up Free</button>
+            )}
 
             <button
                 className="hamburger"

@@ -24,9 +24,11 @@ function Modal({ isOpen, onClose, onSuccess }) {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
+            // capture user data before clearing
+            const createdUser = { name: form.name.trim(), email: form.email.trim() };
             setForm({ name: "", email: "", password: "" });
             setErrors({});
-            onSuccess();
+            if (onSuccess) onSuccess(createdUser);
         }, 1400);
     }
 
