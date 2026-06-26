@@ -25,6 +25,60 @@ navLinks.querySelectorAll("a").forEach(link => {
 });
 
 // =====================
+// PLAY BUTTON — video modal
+// =====================
+const playBtn = document.getElementById("play-video-btn");
+const videoModal = document.getElementById("video-modal");
+const videoClose = document.getElementById("video-close");
+const demoVideo = document.getElementById("demo-video");
+
+if (playBtn && videoModal) {
+    playBtn.addEventListener("click", () => {
+        videoModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+        if (demoVideo) {
+            demoVideo.play();
+        }
+    });
+}
+
+if (videoClose && videoModal) {
+    videoClose.addEventListener("click", () => {
+        videoModal.classList.remove("active");
+        document.body.style.overflow = "";
+        // Pause video
+        if (demoVideo) {
+            demoVideo.pause();
+            demoVideo.currentTime = 0;
+        }
+    });
+}
+
+if (videoModal) {
+    videoModal.addEventListener("click", (e) => {
+        if (e.target === videoModal) {
+            videoModal.classList.remove("active");
+            document.body.style.overflow = "";
+            if (demoVideo) {
+                demoVideo.pause();
+                demoVideo.currentTime = 0;
+            }
+        }
+    });
+}
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && videoModal && videoModal.classList.contains("active")) {
+        videoModal.classList.remove("active");
+        document.body.style.overflow = "";
+        if (demoVideo) {
+            demoVideo.pause();
+            demoVideo.currentTime = 0;
+        }
+    }
+});
+
+// =====================
 // MODAL — open / close / validation
 // =====================
 const modalOverlay = document.getElementById("modal-overlay");
@@ -46,6 +100,10 @@ function closeModal() {
 // Open triggers
 document.getElementById("open-modal").addEventListener("click", openModal);
 document.getElementById("hero-open-modal").addEventListener("click", openModal);
+const ctaButton = document.getElementById("cta-open-modal");
+if (ctaButton) {
+    ctaButton.addEventListener("click", openModal);
+}
 
 // Close triggers
 modalClose.addEventListener("click", closeModal);
