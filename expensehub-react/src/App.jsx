@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Features from "./components/Features";
@@ -14,16 +14,14 @@ import Dashboard from "./components/Dashboard";
 function App() {
     const [modalOpen, setModalOpen] = useState(false);
     const [toastMsg, setToastMsg] = useState("");
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
+    const [user, setUser] = useState(() => {
         try {
             const raw = localStorage.getItem('expensehub_user');
-            if (raw) setUser(JSON.parse(raw));
-        } catch (e) {
-            // ignore
+            return raw ? JSON.parse(raw) : null;
+        } catch {
+            return null;
         }
-    }, []);
+    });
 
     function openModal() {
         setModalOpen(true);
@@ -62,7 +60,9 @@ function App() {
                 onSuccess={(createdUser) => {
                     // set user, persist, and show dashboard
                     setUser(createdUser);
-                    try { localStorage.setItem('expensehub_user', JSON.stringify(createdUser)); } catch (e) {}
+                    try { localStorage.setItem('expensehub_user', JSON.stringify(createdUser)); } catch {
+                        // ignore write failures
+                    }
                     closeModal();
                     showToast("Account created! Welcome to ExpenseHub 🎉");
                 }}
